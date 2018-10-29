@@ -24,7 +24,7 @@ class TeenyViewController: UIViewController {
 
 	private let consoleFrameHeight: CGFloat = 120
 	// Fraction of window size?
-	private let expandedHeight: CGFloat = 140
+	private let expandedHeight: CGFloat = 240
 	
 //	private lazy var consoleFrame: CGRect = {
 //
@@ -36,7 +36,7 @@ class TeenyViewController: UIViewController {
 	
 	private var consoleWindowMode: WindowMode = .collapsed {
 		didSet {
-			consoleHeightConstraint.constant = consoleWindowMode == .collapsed ? 0 : self.expandedHeight
+			consoleHeightConstraint.constant = consoleWindowMode == .collapsed ? 20 : self.expandedHeight
 			view.setNeedsLayout()
 		}
 	}
@@ -52,7 +52,8 @@ class TeenyViewController: UIViewController {
 		
 		// Hide, as the storyboar default is set to allow easier
 		// modification
-		consoleHeightConstraint.constant = 0
+		consoleHeightConstraint.constant = 20
+		consoleViewController?.panDelegate = self
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,6 +71,23 @@ class TeenyViewController: UIViewController {
 			}
 		}
 	}
+	
+}
 
+extension TeenyViewController: PanDelegate {
+
+	func console(_ console: TeenyConsoleViewController, pannedBy: CGPoint) {
+		let maxHeight = self.view.bounds.height - 40
+		UIView.animate(withDuration: 0.25) {
+			self.consoleHeightConstraint.constant += (pannedBy.y * -1.0)
+			if self.consoleHeightConstraint.constant < (self.expandedHeight / 2.0) {
+				self.consoleWindowMode = .collapsed
+			} else if self.consoleHeightConstraint.constant > maxHeight {
+				self.consoleHeightConstraint.constant = maxHeight
+			}
+			self.view.layoutIfNeeded()
+		}
+	}
+	
 }
 

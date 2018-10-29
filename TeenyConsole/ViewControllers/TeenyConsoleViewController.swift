@@ -8,19 +8,44 @@
 
 import UIKit
 
+protocol PanDelegate {
+	func console(_ console: TeenyConsoleViewController, pannedBy: CGPoint)
+}
+
 class TeenyConsoleViewController: UIViewController {
 	
 	@IBOutlet weak var consoleTextView: UITextView!
+	@IBOutlet weak var headerView: UIView!
+
+	@IBOutlet weak var notchImageView: UIImageView!
+
+	@IBOutlet weak var shareButton: UIButton!
+	@IBOutlet weak var clearButton: UIButton!
 	
 	var logFormatter: LogFormatter = DefaultLogFormatter()
+	var panDelegate: PanDelegate?
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		TeenyLogger.shared.consumer = self
 		
-		consoleTextView.backgroundColor = UIColor.black
+		//consoleTextView.backgroundColor = UIColor.black
 		consoleTextView.isEditable = false
+		
+		notchImageView.image = TeenyStyleKit.imageOfNotch(imageSize: CGSize(width: 72, height: 6), notchBackground: UIColor.white, strokeWidth: 6)
+		shareButton.setImage(TeenyStyleKit.imageOfShare(imageSize: CGSize(width: 22, height: 22), iconFillColor: UIColor.white), for: [])
+		clearButton.setImage(TeenyStyleKit.imageOfClear(imageSize: CGSize(width: 22, height: 22), iconFillColor: UIColor.white), for: [])
+
+		shareButton.imageView?.contentMode = .scaleAspectFit
+		clearButton.imageView?.contentMode = .scaleAspectFit
+		
+		view.layer.cornerRadius = 20
+		
+		let panGesture = UIPanGestureRecognizer(target: self, action: #selector(pan))
+		headerView.addGestureRecognizer(panGesture)
+		headerView.isUserInteractionEnabled = true
+		panGesture.delegate = self
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +63,20 @@ class TeenyConsoleViewController: UIViewController {
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 	}
+	
+	@objc func pan(gesture: UIPanGestureRecognizer) {
+		guard gesture.state == .began || gesture.state == .changed else {
+			return
+		}
+		let translation = gesture.translation(in: self.view)
+		print("translation = \(translation)")
+		
+//		let center = gesture.view!.center
+//		gesture.view!.convert(center, to: self.view)
+
+		panDelegate?.console(self, pannedBy: translation)
+		gesture.setTranslation(CGPoint(x: 0, y: 0), in: headerView)
+	}
 
 	public func scrollToBottom() {
 		if consoleTextView.bounds.height < consoleTextView.contentSize.height {
@@ -47,6 +86,12 @@ class TeenyConsoleViewController: UIViewController {
 		}
 	}
 	
+	@IBAction func share(_ sender: Any) {
+	}
+	
+	@IBAction func clear(_ sender: Any) {
+		consoleTextView.text = nil
+	}
 }
 
 extension TeenyConsoleViewController: LogConsumer {
@@ -64,5 +109,9 @@ extension TeenyConsoleViewController: LogConsumer {
 			self.scrollToBottom()
 		}
 	}
+	
+}
+
+extension TeenyConsoleViewController: UIGestureRecognizerDelegate {
 	
 }

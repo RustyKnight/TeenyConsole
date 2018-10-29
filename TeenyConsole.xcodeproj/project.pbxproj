@@ -18,6 +18,7 @@
 		123539DE21828E6000640C93 /* DefaultLogFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123539DD21828E6000640C93 /* DefaultLogFormatter.swift */; };
 		123539E121828EDB00640C93 /* NSAttributedString+AppendString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123539E021828EDB00640C93 /* NSAttributedString+AppendString.swift */; };
 		123539E3218292E800640C93 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 123539E2218292E800640C93 /* ApplicationViewController.swift */; };
+		127208102187B64E00EA0B8A /* TeenyStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1272080F2187B64E00EA0B8A /* TeenyStyleKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		123539E021828EDB00640C93 /* NSAttributedString+AppendString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+AppendString.swift"; sourceTree = "<group>"; };
 		123539E2218292E800640C93 /* ApplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		123539E42182951700640C93 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1272080F2187B64E00EA0B8A /* TeenyStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeenyStyleKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		123539D62182712900640C93 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				1272080E2187B64E00EA0B8A /* StyleKits */,
 				123539A6218270B500640C93 /* AppDelegate.swift */,
 				123539AD218270B500640C93 /* Assets.xcassets */,
 				123539DD21828E6000640C93 /* DefaultLogFormatter.swift */,
@@ -114,6 +117,14 @@
 				123539E021828EDB00640C93 /* NSAttributedString+AppendString.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1272080E2187B64E00EA0B8A /* StyleKits */ = {
+			isa = PBXGroup;
+			children = (
+				1272080F2187B64E00EA0B8A /* TeenyStyleKit.swift */,
+			);
+			path = StyleKits;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				123539E121828EDB00640C93 /* NSAttributedString+AppendString.swift in Sources */,
+				127208102187B64E00EA0B8A /* TeenyStyleKit.swift in Sources */,
 				123539A9218270B500640C93 /* TeenyViewController.swift in Sources */,
 				123539DC21828E1900640C93 /* LogFormatter.swift in Sources */,
 				123539DA21827C9C00640C93 /* TeenyLogger.swift in Sources */,
