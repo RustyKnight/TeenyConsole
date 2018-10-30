@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PanDelegate {
-	func console(_ console: TeenyConsoleViewController, pannedBy: CGPoint)
+	func console(_ console: TeenyConsoleViewController, pannedBy: CGPoint, velocity: CGPoint)
 }
 
 class TeenyConsoleViewController: UIViewController {
@@ -69,12 +69,9 @@ class TeenyConsoleViewController: UIViewController {
 			return
 		}
 		let translation = gesture.translation(in: self.view)
-		print("translation = \(translation)")
-		
-//		let center = gesture.view!.center
-//		gesture.view!.convert(center, to: self.view)
+		let speed = gesture.velocity(in: self.view)
 
-		panDelegate?.console(self, pannedBy: translation)
+		panDelegate?.console(self, pannedBy: translation, velocity: speed)
 		gesture.setTranslation(CGPoint(x: 0, y: 0), in: headerView)
 	}
 
