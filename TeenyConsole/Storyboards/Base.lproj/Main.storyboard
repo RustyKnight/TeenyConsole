@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,6 +13,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TeenyViewController" customModule="TeenyConsole" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ULf-Z4-bxa"/>
+                        <viewControllerLayoutGuide type="bottom" id="u1e-J8-vcY"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,7 +47,6 @@
                             <constraint firstItem="T7V-pj-Cys" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="s9U-hq-NX4"/>
                             <constraint firstItem="T7V-pj-Cys" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="zeY-89-AvC"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="consoleHeightConstraint" destination="T2B-oC-DFA" id="BNP-ne-Z6R"/>
@@ -58,6 +60,10 @@
         <scene sceneID="pHa-Iz-Qmr">
             <objects>
                 <viewController id="yXc-iH-vJH" customClass="ApplicationViewController" customModule="TeenyConsole" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lzx-Oe-BsT"/>
+                        <viewControllerLayoutGuide type="bottom" id="EcR-oN-lR8"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="meK-Yx-PMb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,7 +78,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="5er-Sn-uCG"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e3D-WA-T0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,12 +88,16 @@
         <scene sceneID="PMq-Wv-mJx">
             <objects>
                 <viewController id="Ww1-Al-xAG" customClass="TeenyConsoleViewController" customModule="TeenyConsole" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ono-ny-0fh"/>
+                        <viewControllerLayoutGuide type="bottom" id="9pg-dU-UF4"/>
+                    </layoutGuides>
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="O5S-og-PVn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XyV-Rt-0eM">
-                                <rect key="frame" x="0.0" y="38" width="375" height="589"/>
+                                <rect key="frame" x="0.0" y="38" width="375" height="609"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -141,17 +150,16 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="XyV-Rt-0eM" secondAttribute="bottom" constant="20" id="9bQ-hf-zeo"/>
-                            <constraint firstItem="XyV-Rt-0eM" firstAttribute="top" secondItem="qmN-5m-0wk" secondAttribute="bottom" id="Kbl-fn-h67"/>
-                            <constraint firstAttribute="trailing" secondItem="XyV-Rt-0eM" secondAttribute="trailing" id="Scu-Il-aea"/>
-                            <constraint firstItem="XyV-Rt-0eM" firstAttribute="leading" secondItem="O5S-og-PVn" secondAttribute="leading" id="V4l-UM-kt3"/>
-                            <constraint firstItem="qmN-5m-0wk" firstAttribute="top" secondItem="O5S-og-PVn" secondAttribute="top" id="aQv-fF-l9W"/>
-                            <constraint firstItem="qmN-5m-0wk" firstAttribute="leading" secondItem="ho3-YV-pUD" secondAttribute="leading" id="hKO-bB-l5V"/>
-                            <constraint firstAttribute="trailing" secondItem="qmN-5m-0wk" secondAttribute="trailing" id="ud2-NJ-jPV"/>
+                            <constraint firstItem="qmN-5m-0wk" firstAttribute="leading" secondItem="O5S-og-PVn" secondAttribute="leading" id="Cii-8p-ole"/>
+                            <constraint firstItem="qmN-5m-0wk" firstAttribute="top" secondItem="O5S-og-PVn" secondAttribute="top" id="VMw-7F-odI"/>
+                            <constraint firstAttribute="trailing" secondItem="XyV-Rt-0eM" secondAttribute="trailing" id="Z4P-6C-kg2"/>
+                            <constraint firstAttribute="bottom" secondItem="XyV-Rt-0eM" secondAttribute="bottom" id="mGs-Az-pix"/>
+                            <constraint firstItem="XyV-Rt-0eM" firstAttribute="leading" secondItem="O5S-og-PVn" secondAttribute="leading" id="mKe-YW-YRF"/>
+                            <constraint firstItem="XyV-Rt-0eM" firstAttribute="top" secondItem="qmN-5m-0wk" secondAttribute="bottom" id="n1Y-dT-QaN"/>
+                            <constraint firstItem="qmN-5m-0wk" firstAttribute="trailing" secondItem="O5S-og-PVn" secondAttribute="trailing" id="v7t-Yy-QuU"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ho3-YV-pUD"/>
                     </view>
                     <connections>
                         <outlet property="clearButton" destination="mKJ-S0-mgz" id="aWf-WS-6e6"/>
